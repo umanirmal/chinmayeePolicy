@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  chinmayeepolicy:
+    image: chinmayeepolicy
+    build:
+      context: ./ChinmayeePolicy
+      dockerfile: Dockerfile
