@@ -1,6 +1,4 @@
 FROM microsoft/aspnetcore:2.0
-ARG source
 WORKDIR /app
-EXPOSE 80
-COPY ${source:-obj/Docker/publish} .
-ENTRYPOINT ["dotnet", "ChinmayeePolicy.dll"]
+COPY . .
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet ChinmayeePolicy.dll

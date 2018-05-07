@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Reflection;
+using System.IO;
 
 namespace ChinmayeePolicy
 {
@@ -24,6 +27,29 @@ namespace ChinmayeePolicy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "Chinmayee Policy API",
+                    Description = "Web API for Policy",
+                    Version = "v1",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Chinmayee",
+                        Email = string.Empty,
+                        Url = ""
+                    },
+                });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetEntryAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,8 +59,19 @@ namespace ChinmayeePolicy
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Chinmayee Policy API V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseMvc();
+
         }
     }
 }

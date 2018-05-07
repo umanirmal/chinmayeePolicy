@@ -6,3 +6,6 @@
 /ChinmayeePolicy/ChinmayeePolicy/bin/Release
 /ChinmayeePolicy/ChinmayeePolicy/Properties
 /ChinmayeePolicy/ChinmayeePolicy/obj
+/ChinmayeePolicy/ChinmayeePolicy/bin/Debug/netcoreapp2.0
+/ChinmayeePolicy/obj/Docker
+/ChinmayeePolicy/.vs/config
