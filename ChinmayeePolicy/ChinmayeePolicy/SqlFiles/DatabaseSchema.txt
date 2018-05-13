@@ -1,0 +1,29 @@
+﻿
+DROP table public."Coverage_Level"
+CREATE TABLE public."Coverage_Level"
+(
+    id smallint NOT NULL GENERATED ALWAYS AS IDENTITY,
+    name character varying(30)[] NOT NULL,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public."Coverage_Level"
+    OWNER to omdcyfxildwgvt;
+
+
+
+CREATE TABLE public."Time_Period_Qualifier"
+(
+    id smallint NOT NULL GENERATED ALWAYS AS IDENTITY,
+    name character varying(30)[] NOT NULL,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public."Time_Period_Qualifier"
+    OWNER to omdcyfxildwgvt;
