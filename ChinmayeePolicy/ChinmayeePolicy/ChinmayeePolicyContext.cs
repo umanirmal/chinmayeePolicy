@@ -31,10 +31,10 @@ namespace ChinmayeePolicy
         public virtual DbSet<TimePeriodQualifier> TimePeriodQualifier { get; set; }
         public virtual DbSet<Vitals> Vitals { get; set; }
 
-        //public ChinmayeePolicyContext(DbContextOptions<ChinmayeePolicyContext> options) : base(options)
-        //{
+        public ChinmayeePolicyContext(DbContextOptions<ChinmayeePolicyContext> options) : base(options)
+        {
 
-        //}
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

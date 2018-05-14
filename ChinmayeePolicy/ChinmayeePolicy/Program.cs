@@ -19,6 +19,11 @@ namespace ChinmayeePolicy
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .ConfigureLogging((hosting, logging) =>
+            {
+                logging.AddConsole();
+                logging.AddDebug();
+            })
                 .UseStartup<Startup>()
                 .Build();
     }

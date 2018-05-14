@@ -66,7 +66,7 @@ namespace ChinmayeePolicy
         }
         */
             var connection = @"Host=ec2-54-243-63-13.compute-1.amazonaws.com;Database=d46u65jgu6o7g0;Username=omdcyfxildwgvt;Password=6e5b3c77d3402669530985e7ed46aa6c5edbf441b588931b19b1769493207d3a;Use SSL Stream=True;Trust Server Certificate=True;SSL Mode=Require;";
-            
+
             services.AddDbContext<ChinmayeePolicyContext>(options => options.UseNpgsql(connection));
 
         }
